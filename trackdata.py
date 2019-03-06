@@ -22,6 +22,7 @@ class Source(object):
                 return f.read()
 
     def add(self, path, dependencies, code):
+        import pdb; pdb.set_trace()
         os.system(f"git {self.opt} status")
         os.system(f"git {self.opt} add {path}")
         os.system(f"git {self.opt} status")
@@ -70,7 +71,8 @@ class Snapshot(object):
 
     def __enter__(self):
         import pdb; pdb.set_trace()
-        os.system(f"git checkout -b {self.branch}")
+        os.system(f"git branch {self.branch}")
+        os.system(f"git checkout {self.branch}")
         os.system(f"git add *")
         os.system(f"git commit -m 'automatic commit'")
 

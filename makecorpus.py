@@ -11,4 +11,4 @@ snapshot = Snapshot(token="13c92330f143c002fcae55ced845162251632a42",
 with snapshot as s:
     with source.writer('output.txt', __file__) as w:
         for file_content in w.get("aclImdb/train/pos/"):
-            w.write(file_content)
+            w.write(file_content.lower())
